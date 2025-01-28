@@ -1,0 +1,27 @@
+<?php $_item = $block->getItem();?>
+<?php $_childrenHtml = $block->getChildrenHtml(); ?>
+
+<li class="devbar__list-item">
+    <div class="devbar__info">
+        <?php if($_childrenHtml): ?>
+            <a href="#" class="devbar__toggle devbar__item-name js-devbar__toggle">
+                <span><?php echo $block->getName(); ?></span>
+            </a>
+        <?php else: ?>
+            <span class="devbar__item-name"><?php echo $block->getName(); ?></span>
+        <?php endif; ?>
+
+        <?php if(count($block->getExtras())):?>
+        <span class="devbar__extras">
+            <?php foreach($block->getExtras() as $key => $extra): ?>
+               <span class="devbar__extra__<?php echo $key; ?>">
+                   <span class='devbar__seperator'></span>
+                   <?php echo $block->escapeHtml($extra); ?>
+               </span>
+            <?php endforeach; ?>
+        </span>
+        <?php endif; ?>
+        <a href="#" <?php echo $block->getOutputAttributes();?> class="devbar__highlight-toggle js-devbar__highlight-toggle"><?php echo __('Highlight') ?></a>
+    </div>
+    <?php echo $_childrenHtml; ?>
+</li>

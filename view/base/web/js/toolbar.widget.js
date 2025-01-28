@@ -1,0 +1,206 @@
+(function () {
+    function init($) {
+        $.widget('llapgoch.devtoolbar', {
+            options: {
+                // Actions
+                identifier: 'llapgochDevtoolbar',
+                buttonLinkAction: 'click .js-devbar__button-link',
+                toolbarToggleAction: 'click .js-devbar__toggle',
+
+                // Selectors
+                expandAllSelector: '.js-expand-all',
+                toolbarToggleItemSelector: '.js-devbar__toggle',
+                toolbarContainerSelector: '.devbar',
+                toolbarListItemSelector: '.devbar__list-item',
+                toolbarItemSelector: '.js-devbar__item',
+                toolbarListSelector: '.devbar__list',
+                toolbarListInnerSelector: '.devbar__ul',
+
+                toolbarListInfoSelector: '.devbar__info',
+                toolbarListInfoActiveClass: 'is-active',
+
+                // Active Classes
+                toolbarItemActiveClass: 'devbar__item--active',
+                toolbarToggleActiveClass: 'is-active',
+                itemOpenClass: 'is-active',
+
+                // Settings
+                animateCloseTime: 300,
+                animateOpenTime: 300,
+            },
+
+            _create: function () {
+                this._super();
+                this._addEvents();
+            },
+
+            // Other classes should use these instead of accessing the options directly in case the variables change
+            getListItemSelector: function () {
+                return this.options.toolbarListItemSelector;
+            },
+
+            getToolbarListItemActiveClass: function () {
+                return this.options.toolbarListItemActiveClass;
+            },
+
+            getToolbarInfoSelector: function () {
+                return this.options.toolbarListInfoSelector;
+            },
+
+            getToolbarInfoActiveClass: function () {
+                return this.options.toolbarListInfoActiveClass;
+            },
+
+            getToolbarItemSelector: function () {
+                return this.options.toolbarItemSelector;
+            },
+
+            closeAllPanels: function () {
+                var self = this;
+                $(this.options.toolbarItemSelector, this.getToolbarContainer()).each(function () {
+                    var instance = $(this).data(self.options.identifier);
+                    instance && instance.closePanel();
+                });
+            },
+
+            closePanel: function () {
+                this.element.removeClass(this.options.toolbarItemActiveClass);
+            },
+
+            getToolbarContainer: function () {
+                return this.element.closest(this.options.toolbarContainerSelector);
+            },
+
+            expandAllToggles: function () {
+                var self = this,
+                    $items = $(this.options.toolbarToggleItemSelector, this.element);
+
+                $items.each(function (i, item) {
+                    self.expandToggleItem($(item));
+                });
+            },
+
+            expandToggleItem: function ($this) {
+                var activeClass = this.options.toolbarToggleActiveClass,
+                    $item = $this.closest(this.options.toolbarListItemSelector).find(this.options.toolbarListSelector).first(),
+                    $inner = $item.find(this.options.toolbarListInnerSelector).first(),
+                    self = this;
+
+                $item.animate({
+                    'height': $inner.outerHeight()
+                }, {
+                    'complete': function () {
+                        $item.addClass(activeClass);
+                        $item.css('height', 'auto');
+                    },
+                    'duration': self.options.animateCloseTime
+                });
+
+                $this.addClass(activeClass);
+            },
+
+            _addEvents: function () {
+                var events = {},
+                    self = this;
+
+
+                events["click " + this.options.expandAllSelector] = function (event) {
+                    var $item = $(event.currentTarget).closest(this.options.toolbarItemSelector);
+                    self.expandAllToggles($item);
+                }
+
+                // Button click event
+                events[this.options.buttonLinkAction] = function (event) {
+                    event.preventDefault();
+
+                    var $item = $(event.currentTarget).closest(this.options.toolbarItemSelector),
+                        active = $item.hasClass(this.options.toolbarItemActiveClass);
+
+                    this.closeAllPanels();
+
+                    if (!active) {
+                        $item.addClass(this.options.toolbarItemActiveClass);
+                    } else {
+                        $item.removeClass(this.options.toolbarItemActiveClass);
+                    }
+                };
+
+                // Toggles click events
+                events[this.options.toolbarToggleAction] = function (event) {
+                    event.preventDefault();
+                    var self = this;
+
+                    // find the associated item
+                    var $this = $(event.currentTarget),
+                        $item = $this.closest(this.options.toolbarListItemSelector)
+                            .find(this.options.toolbarListSelector).first(),
+                        $inner = $item.find(this.options.toolbarListInnerSelector).first(),
+                        activeClass = this.options.toolbarToggleActiveClass;
+
+                    if ($item.hasClass(activeClass)) {
+                        $item.removeClass(activeClass);
+                        $this.removeClass(activeClass);
+
+                        $item.css('height', 'auto');
+
+                        $item.animate({
+                            'height': 0
+                        }, self.options.animateOpenTime);
+
+                        $item.removeClass(activeClass);
+                    } else {
+                        self.expandToggleItem($this);
+                    }
+                };
+
+                this._on(this.element, events);
+            }
+        });
+
+        return $.llapgoch.devtoolbar;
+    };
+
+    window.llapgochjQueryLoader = {
+        loaded: false,
+    };
+
+    // Immediately-invoked function expression
+    (function () {
+        // Load the script
+        const script = document.createElement("script");
+        const scriptUi = document.createElement("script");
+        let scriptCount = 0;
+
+        function checkLoad() {
+            if (scriptCount >= 2) {
+                window.llapgochjQueryLoader.loaded = true;
+                const event = new CustomEvent('llapgoch-jquery-loaded');
+
+                window.dispatchEvent(event);
+
+                console.log('horse');
+            }
+        }
+        script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+        script.type = 'text/javascript';
+        script.addEventListener('load', () => {
+            console.log(`jQuery ${$.fn.jquery} has been loaded successfully!`);
+            scriptCount++;
+            checkLoad();
+        });
+
+        scriptUi.src = 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js';
+        scriptUi.type = 'text/javascript';
+
+        scriptUi.addEventListener('load', () => {
+            console.log(`jQuery ${$.fn.jquery}ui has been loaded successfully!`);
+            scriptCount++;
+            checkLoad();
+        });
+
+
+        document.head.appendChild(script);
+        document.head.appendChild(scriptUi);
+    })();
+
+}());
