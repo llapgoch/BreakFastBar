@@ -21,7 +21,8 @@
         }
     }
 
-    // For hyva
+    // We'll need to see if there is a better way to do this. Loading the ui in breaks luma sites as it overrides it.
+    // Maybe check for require first, and if it's there then we can loas it separately.
     if (!window.jQuery) {
         const script = document.createElement("script");
         const scriptUi = document.createElement("script");
