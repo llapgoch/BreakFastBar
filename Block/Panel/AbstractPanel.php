@@ -10,7 +10,7 @@ abstract class AbstractPanel extends \Magento\Framework\View\Element\Template{
     protected $_cssClassPrefix = 'devbar-panel-';
     protected $_cssClassSuffix = 'default';
     protected $_requiredScripts = array(
-        "toolbar.widget" => []
+        // "toolbar.widget" => []
     );
     
     public function __construct(
