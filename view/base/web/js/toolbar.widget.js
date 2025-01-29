@@ -1,6 +1,6 @@
 (function () {
     function init($) {
-        $.widget('llapgoch.devtoolbar', {
+        $.widget('llapgoch.breakfastbar', {
             options: {
                 // Actions
                 identifier: 'llapgochDevtoolbar',
@@ -30,6 +30,7 @@
             },
 
             _create: function () {
+                console.log("CREATE");
                 this._super();
                 this._addEvents();
             },
@@ -158,15 +159,16 @@
             }
         });
 
+        console.log("INIT");
+        $(document).ready(function () {
+            $('.js-breakfastbar-widget').breakfastbar();
+            console.log('INIT22222');
+        });
 
-        $(document).ready(function() {
-            $('.')
-        }
-
-        return $.llapgoch.devtoolbar;
+        return $.llapgoch.breakfastbar;
     };
+
     
-    console.log(window.llapgochjQueryLoader);
     if (!window.llapgochjQueryLoader.loaded) {
         window.addEventListener('llapgoch-jquery-loaded', function () {
             init(window.llapgochjQueryLoader.$);
