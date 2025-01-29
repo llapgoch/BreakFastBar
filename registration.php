@@ -6,6 +6,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Llapgoch_Developertoolbar',
+    'Llapgoch_BreakFastBar',
     __DIR__
 );

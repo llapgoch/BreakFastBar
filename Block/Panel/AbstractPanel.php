@@ -1,6 +1,6 @@
 <?php
 
-namespace Llapgoch\Developertoolbar\Block\Panel;
+namespace Llapgoch\BreakFastBar\Block\Panel;
 
 abstract class AbstractPanel extends \Magento\Framework\View\Element\Template{
     protected $_itemBlock;

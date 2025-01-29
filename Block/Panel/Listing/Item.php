@@ -1,7 +1,7 @@
 <?php
-namespace Llapgoch\Developertoolbar\Block\Panel\Listing;
+namespace Llapgoch\BreakFastBar\Block\Panel\Listing;
 
-use \Llapgoch\Developertoolbar\Model\Attribute\Container as AttributeContainer;
+use \Llapgoch\BreakFastBar\Model\Attribute\Container as AttributeContainer;
 use \Magento\Framework\View\Element\Template\Context;
 
 class Item extends \Magento\Framework\View\Element\Template

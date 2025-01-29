@@ -13,11 +13,12 @@
     // Load the script
     function checkLoad() {
         if (scriptCount >= 2) {
-            // window.llapgochjQueryLoader.loaded = true;
-            // const event = new CustomEvent('llapgoch-jquery-loaded');
+            window.llapgochjQueryLoader.loaded = true;
+            window.llapgochjQueryLoader.$ = window.jQuery.noConflict();
+            const event = new CustomEvent('llapgoch-jquery-loaded');
 
-            // 
-            // window.dispatchEvent(event);
+            
+            window.dispatchEvent(event);
         }
     }
 
@@ -26,8 +27,6 @@
     if (!window.jQuery) {
         const script = document.createElement("script");
         const scriptUi = document.createElement("script");
-
-
 
         script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
         script.type = 'text/javascript';
@@ -47,8 +46,8 @@
         });
 
 
-        // document.head.appendChild(script);
-        // document.head.appendChild(scriptUi);
+        document.head.appendChild(script);
+        document.head.appendChild(scriptUi);
     }
 
     console.log('MOOOOO');

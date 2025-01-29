@@ -1,5 +1,5 @@
 <?php
-namespace Llapgoch\Developertoolbar\Model\View;
+namespace Llapgoch\BreakFastBar\Model\View;
 
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Message\ManagerInterface as MessageManagerInterface;
@@ -24,7 +24,7 @@ class Layout extends \Magento\Framework\View\Layout{
         \Magento\Framework\View\Layout\Generator\ContextFactory $generatorContextFactory,
         AppState $appState,
         Logger $logger,
-        \Llapgoch\Developertoolbar\Helper\Data\Proxy $helper,
+        \Llapgoch\BreakFastBar\Helper\Data\Proxy $helper,
         $cacheable = true
         ){
 

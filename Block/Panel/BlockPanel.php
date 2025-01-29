@@ -1,6 +1,6 @@
 <?php
 
-namespace Llapgoch\Developertoolbar\Block\Panel;
+namespace Llapgoch\BreakFastBar\Block\Panel;
 
 
 class BlockPanel extends AbstractPanel
@@ -14,9 +14,9 @@ class BlockPanel extends AbstractPanel
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \Llapgoch\Developertoolbar\Helper\Data $helper,
-        \Llapgoch\Developertoolbar\Block\Panel\Listing\Item $itemBlock,
-        \Llapgoch\Developertoolbar\Block\Panel\Listing\Container $itemContainer,
+        \Llapgoch\BreakFastBar\Helper\Data $helper,
+        \Llapgoch\BreakFastBar\Block\Panel\Listing\Item $itemBlock,
+        \Llapgoch\BreakFastBar\Block\Panel\Listing\Container $itemContainer,
         \Magento\Framework\View\Layout $layout,
         array $data = []
     ) {

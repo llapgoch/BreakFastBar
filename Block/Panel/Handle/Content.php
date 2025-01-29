@@ -1,6 +1,6 @@
 <?php
 
-namespace Llapgoch\Developertoolbar\Block\Panel\Handle;
+namespace Llapgoch\BreakFastBar\Block\Panel\Handle;
 
 class Content extends \Magento\Framework\View\Element\Template
 {

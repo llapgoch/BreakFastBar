@@ -103,6 +103,7 @@
                 var events = {},
                     self = this;
 
+                console.log('add events');
 
                 events["click " + this.options.expandAllSelector] = function (event) {
                     var $item = $(event.currentTarget).closest(this.options.toolbarItemSelector);
@@ -157,10 +158,15 @@
             }
         });
 
+
+        $(document).ready(function() {
+            $('.')
+        }
+
         return $.llapgoch.devtoolbar;
     };
-    console.log('honk');
-
+    
+    console.log(window.llapgochjQueryLoader);
     if (!window.llapgochjQueryLoader.loaded) {
         window.addEventListener('llapgoch-jquery-loaded', function () {
             init(window.llapgochjQueryLoader.$);

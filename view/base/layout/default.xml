@@ -1,28 +1,30 @@
 <?xml version="1.0"?>
 <page>
     <head>
-        <css src="Llapgoch_Developertoolbar::css/developertoolbar.css" />
-        <link src="Llapgoch_Developertoolbar::js/toolbar.init.js" />
+        <css src="Llapgoch_BreakFastBar::css/breakfastbar.css" />
+        <!-- Include these in the head so they're always there for hyva -->
+        <link src="Llapgoch_BreakFastBar::js/toolbar.init.js" />
+        <link src="Llapgoch_BreakFastBar::js/toolbar.widget.js" />
     </head>
 
     <body>
-        <container name="llapgoch.developertoolbar" htmlTag="div" htmlClass="devbar">
+        <container name="llapgoch.breakfastbar" htmlTag="div" htmlClass="devbar">
             <block class="Magento\Framework\View\Element\Template"
-                name="llapgoch.developertoolbar.bg"
-                template="Llapgoch_Developertoolbar::toolbar/background.phtml" />
-            <block class="Llapgoch\Developertoolbar\Block\Panel\BlockPanel"
-                name="llapgoch-developertoolbar-block"
-                template="Llapgoch_Developertoolbar::toolbar/panel.phtml">
+                name="llapgoch.breakfastbar.bg"
+                template="Llapgoch_BreakFastBar::toolbar/background.phtml" />
+            <block class="Llapgoch\BreakFastBar\Block\Panel\BlockPanel"
+                name="llapgoch-breakfastbar-block"
+                template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
                 <block class="Magento\Framework\View\Element\Template"
-                    name="llapgoch-developertoolbar-block-actions"
-                    template="Llapgoch_Developertoolbar::toolbar/block/actions.phtml" />
+                    name="llapgoch-breakfastbar-block-actions"
+                    template="Llapgoch_BreakFastBar::toolbar/block/actions.phtml" />
             </block>
-            <block class="Llapgoch\Developertoolbar\Block\Panel\HandlePanel"
-                name="llapgoch-developertoolbar-handle"
-                template="Llapgoch_Developertoolbar::toolbar/panel.phtml">
-                <block class="Llapgoch\Developertoolbar\Block\Panel\Handle\Content"
-                    name="llapgoch-developertoolbar-handle-content" as="content"
-                    template="Llapgoch_Developertoolbar::toolbar/handle/content.phtml" />
+            <block class="Llapgoch\BreakFastBar\Block\Panel\HandlePanel"
+                name="llapgoch-breakfastbar-handle"
+                template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
+                <block class="Llapgoch\BreakFastBar\Block\Panel\Handle\Content"
+                    name="llapgoch-breakfastbar-handle-content" as="content"
+                    template="Llapgoch_BreakFastBar::toolbar/handle/content.phtml" />
             </block>
         </container>
     </body>

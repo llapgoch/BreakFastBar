@@ -1,6 +1,6 @@
 {
-    "name": "llapgoch/developertoolbar",
-    "description": "A Developer Toolbar For Magento 2",
+    "name": "llapgoch/breakfastbar",
+    "description": "The sequel to llapgoch/developertoolbar",
     "require": {
         "php": "^7.0.0"
     },
@@ -13,7 +13,7 @@
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
-            "Llapgoch\\Developertoolbar\\": ""
+            "Llapgoch\\BreakFastBar\\": ""
         }
     }
 }

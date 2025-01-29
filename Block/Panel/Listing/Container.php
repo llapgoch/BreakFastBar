@@ -1,6 +1,6 @@
 <?php
 
-namespace Llapgoch\Developertoolbar\Block\Panel\Listing;
+namespace Llapgoch\BreakFastBar\Block\Panel\Listing;
 
 class Container extends \Magento\Framework\View\Element\Template
 {

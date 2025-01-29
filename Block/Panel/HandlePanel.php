@@ -1,12 +1,12 @@
 <?php
 
-namespace Llapgoch\Developertoolbar\Block\Panel;
+namespace Llapgoch\BreakFastBar\Block\Panel;
 
 class HandlePanel extends AbstractPanel
 {
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \Llapgoch\Developertoolbar\Helper\Data $helper,
+        \Llapgoch\BreakFastBar\Helper\Data $helper,
         \Magento\Framework\View\Layout $layout,
         array $data = []
     ) {

@@ -1,5 +1,5 @@
 <?php
-namespace Llapgoch\Developertoolbar\Model\Attribute;
+namespace Llapgoch\BreakFastBar\Model\Attribute;
 use \Magento\Framework\Model\AbstractModel;
 
 class Container extends AbstractModel{

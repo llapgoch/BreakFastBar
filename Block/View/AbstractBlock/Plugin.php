@@ -1,10 +1,10 @@
 <?php
-namespace Llapgoch\Developertoolbar\Block\View\AbstractBlock;
+namespace Llapgoch\BreakFastBar\Block\View\AbstractBlock;
 
 class Plugin{    
     protected $_helper;
     
-    public function __construct(\Llapgoch\Developertoolbar\Helper\Data $helper){
+    public function __construct(\Llapgoch\BreakFastBar\Helper\Data $helper){
         $this->_helper = $helper;
     }
     

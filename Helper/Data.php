@@ -1,19 +1,19 @@
 <?php
-namespace Llapgoch\Developertoolbar\Helper;
+namespace Llapgoch\BreakFastBar\Helper;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper{
     const START_MARKER_SUFFIX = "-start-viewer";
     const END_MARKER_SUFFIX = "-end-viewer";
     const GLOBAL_MARKER = "developer-toolbar-dom-marker";
     const HEAD_COMPONENTS_NAME = "head.components";
-    const DEVELOPER_TOOLBAR_NAME = "llapgoch.developertoolbar";
+    const DEVELOPER_TOOLBAR_NAME = "llapgoch.breakfastbar";
     
     protected $_dataStructure;
     
     // Use a proxy to sort out the circular reference
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
-        \Llapgoch\Developertoolbar\Model\View\Layout\Proxy $layout)
+        \Llapgoch\BreakFastBar\Model\View\Layout\Proxy $layout)
     {
         $this->_dataStructure = $layout->getStructure();
         parent::__construct($context);
