@@ -159,16 +159,14 @@
             }
         });
 
-        console.log("INIT");
         $(document).ready(function () {
             $('.js-breakfastbar-widget').breakfastbar();
-            console.log('INIT22222');
         });
 
         return $.llapgoch.breakfastbar;
     };
 
-    
+
     if (!window.llapgochjQueryLoader.loaded) {
         window.addEventListener('llapgoch-jquery-loaded', function () {
             init(window.llapgochjQueryLoader.$);

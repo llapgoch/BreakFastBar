@@ -33,7 +33,7 @@ class BlockPanel extends AbstractPanel
         $this->_buttonTitle = 'Blocks';
         $this->_cssClassSuffix = 'block';
 
-        
+        $this->_cssInitClasses[] = 'js-breakfastbar-block-widget';
         // $this->_requiredScripts['toolbar.blockviewer.widget'] = [];
     }
 

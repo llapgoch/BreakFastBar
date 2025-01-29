@@ -5,6 +5,7 @@
         <!-- Include these in the head so they're always there for hyva -->
         <link src="Llapgoch_BreakFastBar::js/toolbar.init.js" />
         <link src="Llapgoch_BreakFastBar::js/toolbar.widget.js" />
+        <link src="Llapgoch_BreakFastBar::js/toolbar.blockviewer.widget.js" />
     </head>
 
     <body>
