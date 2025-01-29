@@ -34,7 +34,6 @@
             },
 
             _create: function () {
-                alert("CREATE");
                 this._super();
                 this._markApplicableToggles();
                 this._addEvents();

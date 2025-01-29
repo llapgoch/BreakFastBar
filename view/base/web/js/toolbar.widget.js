@@ -30,7 +30,6 @@
             },
 
             _create: function () {
-                console.log("CREATE");
                 this._super();
                 this._addEvents();
             },
@@ -103,8 +102,6 @@
             _addEvents: function () {
                 var events = {},
                     self = this;
-
-                console.log('add events');
 
                 events["click " + this.options.expandAllSelector] = function (event) {
                     var $item = $(event.currentTarget).closest(this.options.toolbarItemSelector);
