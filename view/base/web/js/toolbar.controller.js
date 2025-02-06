@@ -2,22 +2,36 @@
     function init($) {
         $.widget('llapgoch.breakfastbarcontroller', {
             options: {
-                toggleSelector: '.js-breakfastbar-toggle',
+                toggleAction: 'click .js-breakfastbar-toggle',
                 togglableSelector: '.js-breakfastbar-togglable',
+                lsKey: 'breakfastbar-visible',
                 visible: true
             },
 
             _create: function () {
                 this._super();
                 this._addEvents();
+
+                // Get the visible state from local storage
+                this.options.visible = !!(parseInt(localStorage.getItem(this.options.lsKey), 10));
+
+                if (this.options.visible) {
+                    this._showBreakfastbar();
+                } else {
+                    this._hideBreakfastbar();
+                }
             },
 
             // add event to logo
             _addEvents: function () {
-                var self = this;
-                $(this.options.toggleSelector).on('click', function () {
+                var events = {},
+                    self = this;
+
+                events[this.options.toggleAction] = function () {
                     self._toggleBreakfastbar();
-                });
+                };
+
+                this._on(this.element, events);
             },
 
             _toggleBreakfastbar: function () {
@@ -29,13 +43,20 @@
             },
 
             _hideBreakfastbar: function () {
-                this.options.visible = false;
                 $(this.options.togglableSelector, this.element).hide();
+                this.options.visible = false;
+                // Set the localStorage value
+                this.updateLocalStorage();
             },
 
             _showBreakfastbar: function () {
-                this.options.visible = true;
                 $(this.options.togglableSelector, this.element).show();
+                this.options.visible = true;
+                this.updateLocalStorage();
+            },
+
+            updateLocalStorage: function () {
+                localStorage.setItem(this.options.lsKey, this.options.visible ? 1 : 0);
             }
         });
         $(document).ready(function () {
