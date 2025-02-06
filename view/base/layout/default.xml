@@ -4,15 +4,20 @@
         <css src="Llapgoch_BreakFastBar::css/breakfastbar.css" />
         <!-- Include these in the head so they're always there for hyva -->
         <link src="Llapgoch_BreakFastBar::js/toolbar.init.js" />
+        <link src="Llapgoch_BreakFastBar::js/toolbar.controller.js" />
         <link src="Llapgoch_BreakFastBar::js/toolbar.widget.js" />
         <link src="Llapgoch_BreakFastBar::js/toolbar.blockviewer.widget.js" />
     </head>
 
     <body>
-        <container name="llapgoch.breakfastbar" htmlTag="div" htmlClass="devbar">
+        <container name="llapgoch.breakfastbar" htmlTag="div" htmlClass="devbar js-breakfastbar-controller">
             <block class="Magento\Framework\View\Element\Template"
                 name="llapgoch.breakfastbar.bg"
                 template="Llapgoch_BreakFastBar::toolbar/background.phtml" />
+
+            <block class="Magento\Framework\View\Element\Template" name='llapgoch.breakfastbar.logo'
+                template='Llapgoch_BreakFastBar::logo.phtml' />
+
             <block class="Llapgoch\BreakFastBar\Block\Panel\BlockPanel"
                 name="llapgoch-breakfastbar-block"
                 template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
@@ -20,6 +25,7 @@
                     name="llapgoch-breakfastbar-block-actions"
                     template="Llapgoch_BreakFastBar::toolbar/block/actions.phtml" />
             </block>
+
             <block class="Llapgoch\BreakFastBar\Block\Panel\HandlePanel"
                 name="llapgoch-breakfastbar-handle"
                 template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
