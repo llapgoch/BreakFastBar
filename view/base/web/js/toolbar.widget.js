@@ -3,7 +3,7 @@
         $.widget('llapgoch.breakfastbar', {
             options: {
                 // Actions
-                identifier: 'llapgochDevtoolbar',
+                identifier: 'llapgochBreakfastbar',
                 buttonLinkAction: 'click .js-devbar__button-link',
                 toolbarToggleAction: 'click .js-devbar__toggle',
 
@@ -85,6 +85,7 @@
                     $item = $this.closest(this.options.toolbarListItemSelector).find(this.options.toolbarListSelector).first(),
                     $inner = $item.find(this.options.toolbarListInnerSelector).first(),
                     self = this;
+
 
                 $item.animate({
                     'height': $inner.outerHeight()
