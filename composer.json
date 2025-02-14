@@ -2,10 +2,10 @@
     "name": "llapgoch/breakfastbar",
     "description": "The sequel to llapgoch/developertoolbar",
     "require": {
-        "php": "^7.0.0"
+        "php": "^8.0.0"
     },
     "type": "magento2-module",
-    "version": "0.1.0-beta",
+    "version": "1.0.3",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
