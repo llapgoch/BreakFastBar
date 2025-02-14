@@ -146,7 +146,7 @@ ul .devbar__ul {
     width: 100%;
     position: fixed;
     bottom: 0;
-    z-index: 9007199254740991;
+    z-index: 2147483647;
 }
 
 .devbar__bg {
