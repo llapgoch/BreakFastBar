@@ -36,6 +36,14 @@
                     template="Llapgoch_BreakFastBar::toolbar/handle/content.phtml" />
             </block>
 
+            <block class="Llapgoch\BreakFastBar\Block\Panel\RequestPanel"
+                name="llapgoch-breakfastbar-request"
+                template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
+                <block class="Llapgoch\BreakFastBar\Block\Panel\Request\Content"
+                    name="llapgoch-breakfastbar-request-content" as="content"
+                    template="Llapgoch_BreakFastBar::toolbar/request/content.phtml" />
+            </block>
+
             <block class="Llapgoch\BreakFastBar\Block\Panel\LumaPanel"
                 name="llapgoch-breakfastbar-luma"
                 template="Llapgoch_BreakFastBar::toolbar/panel.phtml">

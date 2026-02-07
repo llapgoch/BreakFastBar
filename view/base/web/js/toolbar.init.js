@@ -24,13 +24,16 @@
         }
     }
 
-    // Add theme detection class to devbar container
-    var devbar = document.querySelector('.devbar');
+    // Add theme detection class to devbar container once DOM is ready
+    var themeClass = !window.require ? 'devbar--hyva' : 'devbar--luma';
+    document.addEventListener('DOMContentLoaded', function () {
+        var devbar = document.querySelector('.devbar');
+        if (devbar) devbar.classList.add(themeClass);
+    });
 
     // This assumes another frontend is being used without requirejs, so we need to load jQuery and jQuery UI here.
     //
     if (!window.require) {
-        if (devbar) devbar.classList.add('devbar--hyva');
         const script = document.createElement("script");
         const scriptUi = document.createElement("script");
 
@@ -53,7 +56,6 @@
         document.head.appendChild(script);
         document.head.appendChild(scriptUi);
     } else {
-        if (devbar) devbar.classList.add('devbar--luma');
         // Requirejs mode
         require(['jquery', 'jquery/ui'], function ($, ui) {
             window.llapgochjQueryLoader.loaded = true;

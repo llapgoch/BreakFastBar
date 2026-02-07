@@ -1,0 +1,11 @@
+<?php
+$info = $block->getRequestInfo();
+?>
+<div class="devbar__kv-list">
+    <?php foreach ($info as $label => $value): ?>
+        <div class="devbar__kv-row">
+            <span class="devbar__kv-label"><?= $block->escapeHtml($label) ?></span>
+            <span class="devbar__kv-value"><?= $block->escapeHtml($value) ?></span>
+        </div>
+    <?php endforeach; ?>
+</div>
