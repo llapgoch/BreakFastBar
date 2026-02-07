@@ -146,7 +146,7 @@
     top: 0;
     left: 0;
     width: fit-content;
-    max-width: 90vw;
+    max-width: min(700px, 90vw);
     font-size: 12px;
     color: #c9d1d9;
     background: #161b22;
@@ -322,6 +322,7 @@ ul .devbar__ul {
 
 .devbar__info {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     padding: 4px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -420,8 +421,10 @@ a.devbar__highlight-toggle.is-error {
 
 .devbar__extras {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0;
+    min-width: 0;
 }
 
 .devbar__seperator {
