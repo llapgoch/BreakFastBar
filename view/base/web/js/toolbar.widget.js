@@ -27,11 +27,15 @@
                 // Settings
                 animateCloseTime: 300,
                 animateOpenTime: 300,
+
+                // localStorage
+                lsExpandedKey: 'breakfastbar-expanded-all',
             },
 
             _create: function () {
                 this._super();
                 this._addEvents();
+                this._restoreExpandState();
             },
 
             // Other classes should use these instead of accessing the options directly in case the variables change
@@ -78,6 +82,47 @@
                 $items.each(function (i, item) {
                     self.expandToggleItem($(item));
                 });
+
+                this._setExpanded(true);
+            },
+
+            collapseAllToggles: function () {
+                var self = this,
+                    activeClass = this.options.toolbarToggleActiveClass,
+                    $items = $(this.options.toolbarToggleItemSelector, this.element);
+
+                $items.each(function (i, item) {
+                    var $toggle = $(item),
+                        $item = $toggle.closest(self.options.toolbarListItemSelector)
+                            .find(self.options.toolbarListSelector).first();
+
+                    $item.animate({'height': 0}, self.options.animateCloseTime, function () {
+                        $item.removeClass(activeClass);
+                    });
+                    $toggle.removeClass(activeClass);
+                });
+
+                this._setExpanded(false);
+            },
+
+            _setExpanded: function (expanded) {
+                localStorage.setItem(this.options.lsExpandedKey, expanded ? '1' : '0');
+                this._updateExpandLabel(expanded);
+            },
+
+            _updateExpandLabel: function (expanded) {
+                var $link = $(this.options.expandAllSelector, this.element);
+                if ($link.length) {
+                    $link.text(expanded ? $link.data('text-collapse') : $link.data('text-expand'));
+                }
+            },
+
+            _restoreExpandState: function () {
+                var expanded = localStorage.getItem(this.options.lsExpandedKey) === '1';
+                if (expanded) {
+                    this.expandAllToggles();
+                }
+                this._updateExpandLabel(expanded);
             },
 
             expandToggleItem: function ($this) {
@@ -105,8 +150,13 @@
                     self = this;
 
                 events["click " + this.options.expandAllSelector] = function (event) {
-                    var $item = $(event.currentTarget).closest(this.options.toolbarItemSelector);
-                    self.expandAllToggles($item);
+                    event.preventDefault();
+                    var expanded = localStorage.getItem(self.options.lsExpandedKey) === '1';
+                    if (expanded) {
+                        self.collapseAllToggles();
+                    } else {
+                        self.expandAllToggles();
+                    }
                 }
 
                 // Button click event
