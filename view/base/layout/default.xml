@@ -7,6 +7,8 @@
         <link src="Llapgoch_BreakFastBar::js/toolbar.controller.js" />
         <link src="Llapgoch_BreakFastBar::js/toolbar.widget.js" />
         <link src="Llapgoch_BreakFastBar::js/toolbar.blockviewer.widget.js" />
+        <link src="Llapgoch_BreakFastBar::js/toolbar.luma.js" />
+        <link src="Llapgoch_BreakFastBar::js/toolbar.alpine.js" />
     </head>
 
     <body>
@@ -22,7 +24,7 @@
                 name="llapgoch-breakfastbar-block"
                 template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
                 <block class="Magento\Framework\View\Element\Template"
-                    name="llapgoch-breakfastbar-block-actions"
+                    name="llapgoch-breakfastbar-block-actions" as="actions"
                     template="Llapgoch_BreakFastBar::toolbar/block/actions.phtml" />
             </block>
 
@@ -32,6 +34,28 @@
                 <block class="Llapgoch\BreakFastBar\Block\Panel\Handle\Content"
                     name="llapgoch-breakfastbar-handle-content" as="content"
                     template="Llapgoch_BreakFastBar::toolbar/handle/content.phtml" />
+            </block>
+
+            <block class="Llapgoch\BreakFastBar\Block\Panel\LumaPanel"
+                name="llapgoch-breakfastbar-luma"
+                template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
+                <block class="Magento\Framework\View\Element\Template"
+                    name="llapgoch-breakfastbar-luma-content" as="content"
+                    template="Llapgoch_BreakFastBar::toolbar/luma/content.phtml" />
+                <block class="Magento\Framework\View\Element\Template"
+                    name="llapgoch-breakfastbar-luma-actions" as="actions"
+                    template="Llapgoch_BreakFastBar::toolbar/luma/actions.phtml" />
+            </block>
+
+            <block class="Llapgoch\BreakFastBar\Block\Panel\AlpinePanel"
+                name="llapgoch-breakfastbar-alpine"
+                template="Llapgoch_BreakFastBar::toolbar/panel.phtml">
+                <block class="Magento\Framework\View\Element\Template"
+                    name="llapgoch-breakfastbar-alpine-content" as="content"
+                    template="Llapgoch_BreakFastBar::toolbar/alpine/content.phtml" />
+                <block class="Magento\Framework\View\Element\Template"
+                    name="llapgoch-breakfastbar-alpine-actions" as="actions"
+                    template="Llapgoch_BreakFastBar::toolbar/alpine/actions.phtml" />
             </block>
         </container>
     </body>

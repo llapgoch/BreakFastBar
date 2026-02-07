@@ -469,3 +469,138 @@ a.devbar__highlight-toggle.is-error {
     font-size: 11px;
     color: #7dd3fc;
 }
+
+/*
+// =============================================
+// Theme-Conditional Panel Visibility
+// =============================================
+*/
+
+.devbar--hyva .devbar-panel-luma { display: none !important; }
+.devbar--luma .devbar-panel-alpine { display: none !important; }
+
+/*
+// =============================================
+// JS Debug Panel Styles
+// =============================================
+*/
+
+.devbar-jspanel__loading {
+    padding: 12px 14px;
+    color: #8b949e;
+    font-style: italic;
+    font-size: 11px;
+}
+
+.devbar-jspanel__empty {
+    padding: 12px 14px;
+    color: #8b949e;
+    font-size: 11px;
+}
+
+.devbar-jspanel__badge {
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #a5b4fc;
+    background: rgba(99, 102, 241, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.devbar-jspanel__section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.devbar-jspanel__section-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #e6edf3;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+}
+
+.devbar-jspanel__section-header:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.devbar-jspanel__arrow {
+    display: inline-block;
+    width: 12px;
+    font-size: 9px;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.devbar-jspanel__count {
+    margin-left: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    color: #8b949e;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 1px 6px;
+    border-radius: 8px;
+}
+
+.devbar-jspanel__section-body {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.devbar-jspanel__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    padding: 3px 14px 3px 26px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    font-size: 11px;
+    gap: 6px;
+    transition: background 0.15s;
+}
+
+.devbar-jspanel__item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.devbar-jspanel__item--expandable {
+    cursor: pointer;
+}
+
+.devbar-jspanel__item-name {
+    font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: #7dd3fc;
+    word-break: break-all;
+}
+
+.devbar-jspanel__item-detail {
+    color: #6b7280;
+    font-size: 10px;
+    word-break: break-all;
+}
+
+.devbar-jspanel__item-expanded {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.devbar-jspanel__pre {
+    margin: 0;
+    padding: 8px 10px;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+    font-size: 10px;
+    color: #c9d1d9;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 200px;
+    overflow-y: auto;
+}
