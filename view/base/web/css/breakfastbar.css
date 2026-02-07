@@ -1,18 +1,17 @@
-
 /*
 // =============================================
 // Base Styles
 // =============================================
 */
 
-body {
-    margin: 0;
-}
-
 .devbar,
 .devbar * {
-    font-family: Tahoma;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
+}
+
+.devbar * {
+    font-size: 1em;
 }
 
 .devbar__list ul,
@@ -27,114 +26,9 @@ body {
 }
 
 .devbar__panel a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    opacity: 0.85;
 }
-
-.devbar * {
-    font-size: 1em;
-}
-
-
-/*
-// =============================================
-// Colors
-// =============================================
-*/
-
-/* Blocks */
-/*.devbar-panel-block .devbar__button-link {
-    background-color: #BC1A30;
-}
-.devbar-panel-handles .devbar__button-link {
-    background-color: #2D6B9F;
-}
-.devbar-panel-js .devbar__button-link {
-    background-color: #F7D74D;
-}*/
-
-.devbar__panel a,
-.devbar__panel a:visited,
-.devbar__item-name,
-a.devbar__highlight-toggle {
-    color: #ff731b;
-}
-
-.devbar__button-link, 
-.devbar__button a:visited{
-    color: white;
-}
-
-.devbar__button-link.is-active,
-.devbar__button a.is-active:visited {
-    color: #f4e829;
-}
-
-.devbar__panel {
-    color: #99b8d6;
-}
-
-.devbar__bg {
-    background: #ff731b;
-}
-
-.devbar__panel,
-.devbar__info {
-    background: #09162b;
-}
-
-.devbar__overlay {
-    background-color: #7d29d2;
-}
-
-/*
-// =============================================
-// Colors - List Trail
-// =============================================
-*/
-
-ul .devbar__ul {
-    background-color: gainsboro;
-    padding-left: 10px;
-}
-@media(max-width: 32em) {
-    ul .devbar__ul {
-        padding-left: 5px;
-    }
-}
-.devbar__list .level_10 {
-    background-color: #031F73;
-}
-.devbar__list .level_20 {
-    background-color: #073673;
-}
-.devbar__list .level_30 {
-    background-color: #0A4273;
-}
-.devbar__list .level_40 {
-    background-color: #0D4C73;
-}
-.devbar__list .level_50 {
-    background-color: #145873;
-}
-.devbar__list .level_60 {
-    background-color: #5087A0;
-}
-.devbar__list .level_70 {
-    background-color: #6087A0;
-}
-.devbar__list .level_80 {
-    background-color: #7087A1;
-}
-.devbar__list .level_90 {
-    background-color: #737C94;
-}
-.devbar__list .level_100 {
-    background-color: #7E788F;
-}
-.devbar__list .level_110 {
-    background-color: #827287;
-}
-
 
 /*
 // =============================================
@@ -147,14 +41,52 @@ ul .devbar__ul {
     position: fixed;
     bottom: 0;
     z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
 }
 
 .devbar__bg {
     z-index: 100;
     position: absolute;
-    width: 100%;
-    height: 100%
+    inset: 0;
+    background: #1a1a2e;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Logo */
+.devbar__logo {
+    z-index: 120;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.devbar__logo a {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.devbar__logo a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.devbar__logo svg {
+    height: 30px;
+    width: 30px;
+    display: block;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/*
+// =============================================
+// Toolbar Buttons
+// =============================================
+*/
 
 .devbar__item {
     display: inline-block;
@@ -168,119 +100,192 @@ ul .devbar__ul {
 .devbar__button-link {
     display: block;
     text-decoration: none;
-    padding: 0.3em 0.6em;
+    padding: 5px 14px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: 6px;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.devbar__panel {
-    max-height: 90vh;
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 0;
-    font-size: 11px;
-    opacity: 0.95;
-    -webkit-transition: transform 0.5s;
-}
-@media(min-width: 64em) {
-    .devbar__panel {
-        max-width: 65%;
-    }
+.devbar__button-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
 }
 
-.devbar__item--active .devbar__panel {
-    transform: translateY(-100%);
+.devbar__button a:visited {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.devbar__button-link.is-active,
+.devbar__button a.is-active:visited {
+    background: rgba(99, 102, 241, 0.25);
+    color: #a5b4fc;
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.devbar__item--active .devbar__button-link {
+    background: rgba(99, 102, 241, 0.3);
+    color: #c7d2fe;
+    border-color: rgba(99, 102, 241, 0.5);
 }
 
 /*
 // =============================================
-// Toolbar Panel Header
+// Panel
+// =============================================
+*/
+
+.devbar__panel {
+    max-height: 80vh;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    max-width: 90vw;
+    font-size: 12px;
+    color: #c9d1d9;
+    background: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 0;
+    border-radius: 10px 10px 0 0;
+    box-shadow: none;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s;
+}
+
+.devbar__item--active .devbar__panel {
+    transform: translateY(-100%);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/*
+// =============================================
+// Panel Header
 // =============================================
 */
 
 .devbar__panel-header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    padding: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px 10px 0 0;
 }
+
 .devbar__panel-title {
     margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e6edf3;
+    letter-spacing: 0.01em;
 }
+
 .devbar__title-actions {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.devbar__title-actions a {
+    color: #8b949e;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+}
+
+.devbar__title-actions a:hover {
+    color: #c9d1d9;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.devbar__title-actions label {
+    color: #8b949e;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.devbar__title-actions input[type="checkbox"] {
+    accent-color: #6366f1;
 }
 
 .devbar__panel-body {
-    overflow-y: scroll;
-    max-height: 395px;
+    overflow-y: auto;
+    max-height: 400px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
+
+.devbar__panel-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.devbar__panel-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.devbar__panel-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.devbar__panel-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/*
+// =============================================
+// Panel Links
+// =============================================
+*/
+
+.devbar__panel a,
+.devbar__panel a:visited {
+    color: #7dd3fc;
+}
+
+.devbar__item-name {
+    color: #e2e8f0;
+}
+
+a.devbar__highlight-toggle {
+    color: #a78bfa;
+}
+
+/*
+// =============================================
+// Block Overlay
+// =============================================
+*/
 
 .devbar__overlay {
     position: absolute;
     z-index: 900;
-    opacity: 0.5;
-    transition: width 500ms ease-in-out, height 500ms ease-in-out, top 500ms ease-in-out, left 500ms ease-in-out;
-    -webkit-transition: width 500ms ease-in-out, height 500ms ease-in-out, top 500ms ease-in-out, left 500ms ease-in-out;
+    opacity: 0.4;
+    background: #818cf8;
+    border: 2px solid #6366f1;
+    border-radius: 3px;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.devbar__toggle::before {
-    content: '';
-    width: 0;
-    height: 0;
-    display: inline-block;
-    vertical-align: middle;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-left: 4px solid #99b8d6;
-    border-right: none;
-    margin-right: 6px;
-    margin-left: -2px;
-    margin-top: -3px;
-}
-
-.devbar__toggle.is-active::before {
-    border-right: 3px solid transparent;
-    border-left: 3px solid transparent;
-    border-top: 4px solid #99b8d6;
-    border-bottom: none;
-}
-
-.devbar__info {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    padding: 2px 6px;
-    border-top: 1px solid #1A3156;
-}
-
-.devbar__info.is-active {
-    background: black;
-}
-
-.devbar__highlight-toggle {
-    margin-left: auto;
-    display: none;
-}
-
-.devbar__highlight-toggle.is-enabled {
-    display: block;
-}
-
-a.devbar__highlight-toggle.is-active{
-    color: #00aa00;
-}
-
-a.devbar__highlight-toggle.is-error {
-    color: #cc0000;
-}
+/*
+// =============================================
+// Tree List
+// =============================================
+*/
 
 .devbar__list {
     overflow: hidden;
@@ -291,19 +296,173 @@ a.devbar__highlight-toggle.is-error {
     height: auto;
 }
 
-.devbar__list.is-active {
-
-}
-
 .devbar__ul {
     position: relative;
 }
 
-.devbar__seperator{
-    padding-right: 8px;
+ul .devbar__ul {
+    padding-left: 16px;
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
     margin-left: 8px;
-    border-left: 1px dotted white;
+    background: none;
 }
 
+@media(max-width: 32em) {
+    ul .devbar__ul {
+        padding-left: 8px;
+        margin-left: 4px;
+    }
+}
 
+/*
+// =============================================
+// List Items
+// =============================================
+*/
 
+.devbar__info {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.15s;
+    min-height: 28px;
+}
+
+.devbar__info:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.devbar__info.is-active {
+    background: rgba(99, 102, 241, 0.12);
+}
+
+/*
+// =============================================
+// Toggle Arrow
+// =============================================
+*/
+
+.devbar__toggle::before {
+    content: '';
+    width: 0;
+    height: 0;
+    display: inline-block;
+    vertical-align: middle;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 5px solid #6b7280;
+    border-right: none;
+    margin-right: 6px;
+    margin-top: -1px;
+    transition: transform 0.2s;
+}
+
+.devbar__toggle.is-active::before {
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-top: 5px solid #818cf8;
+    border-bottom: none;
+}
+
+/*
+// =============================================
+// Highlight Toggle
+// =============================================
+*/
+
+.devbar__highlight-toggle {
+    margin-left: auto;
+    display: none;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.devbar__highlight-toggle.is-enabled {
+    display: inline-flex;
+    align-items: center;
+}
+
+a.devbar__highlight-toggle {
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+a.devbar__highlight-toggle:hover {
+    background: rgba(167, 139, 250, 0.2);
+    border-color: rgba(167, 139, 250, 0.3);
+}
+
+a.devbar__highlight-toggle.is-active {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border-color: rgba(74, 222, 128, 0.25);
+}
+
+a.devbar__highlight-toggle.is-error {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+    border-color: rgba(248, 113, 113, 0.25);
+}
+
+/*
+// =============================================
+// Extras (template, class type)
+// =============================================
+*/
+
+.devbar__extras {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.devbar__seperator {
+    padding-right: 0;
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    color: #6b7280;
+    font-size: 11px;
+}
+
+/*
+// =============================================
+// Depth Level Colors
+// =============================================
+*/
+
+.devbar__list .level_10 { background-color: rgba(99, 102, 241, 0.08); }
+.devbar__list .level_20 { background-color: rgba(99, 102, 241, 0.06); }
+.devbar__list .level_30 { background-color: rgba(99, 102, 241, 0.04); }
+.devbar__list .level_40 { background-color: rgba(99, 102, 241, 0.03); }
+.devbar__list .level_50 { background-color: rgba(99, 102, 241, 0.02); }
+.devbar__list .level_60 { background-color: transparent; }
+.devbar__list .level_70 { background-color: transparent; }
+.devbar__list .level_80 { background-color: transparent; }
+.devbar__list .level_90 { background-color: transparent; }
+.devbar__list .level_100 { background-color: transparent; }
+.devbar__list .level_110 { background-color: transparent; }
+
+/*
+// =============================================
+// Handle List Items
+// =============================================
+*/
+
+.devbar__list.level_0 > .devbar__ul > .devbar__list-item > .devbar__info {
+    padding: 5px 10px;
+}
+
+.devbar__list.level_0 > .devbar__ul > .devbar__list-item > .devbar__info .devbar__item-name {
+    font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: #7dd3fc;
+}
