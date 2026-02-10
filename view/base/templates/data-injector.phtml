@@ -1,0 +1,13 @@
+<?php /** @var \Llapgoch\BreakFastBar\Block\DataInjector $block */ ?>
+<?php
+try {
+    $jsonData = $block->getJsonData();
+} catch (\Throwable $e) {
+    $jsonData = json_encode(['_error' => $e->getMessage()]);
+}
+?>
+<!-- breakfastbar-data-injector-marker -->
+<script type="application/json" id="breakfastbar-data"><?= /* @noEscape */ $jsonData ?></script>
+<?php if (!$block->isToolbarVisible()): ?>
+<style>.devbar { display: none !important; }</style>
+<?php endif; ?>

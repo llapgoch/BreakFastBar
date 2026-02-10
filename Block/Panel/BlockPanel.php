@@ -30,7 +30,7 @@ class BlockPanel extends AbstractPanel
         $this->_layout = $layout;
         $this->_title = 'Blocks';
         $this->_helper = $helper;
-        $this->_buttonTitle = 'Blocks';
+        $this->_buttonTitle = '▦ Blocks';
         $this->_cssClassSuffix = 'block';
 
         $this->_cssInitClasses[] = 'js-breakfastbar-block-widget';

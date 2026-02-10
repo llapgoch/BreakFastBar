@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="llapgoch_breakfastbar" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>BreakFast Bar</label>
+            <tab>advanced</tab>
+            <resource>Llapgoch_BreakFastBar::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="show_toolbar" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Toolbar</label>
+                    <comment>When disabled, the toolbar bar is hidden but block markers and data remain on the page for the Firefox Extension.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

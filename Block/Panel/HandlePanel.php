@@ -16,7 +16,7 @@ class HandlePanel extends AbstractPanel
         $this->_layout = $layout;
         $this->_title = 'Handles';
         $this->_helper = $helper;
-        $this->_buttonTitle = 'Handles';
+        $this->_buttonTitle = '☰ Handles';
         $this->_cssClassSuffix = 'handle';
     }
 }

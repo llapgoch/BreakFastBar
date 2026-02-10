@@ -11,7 +11,7 @@ class RequestPanel extends AbstractPanel
         parent::__construct($context, $data);
 
         $this->_title = 'Request';
-        $this->_buttonTitle = 'Request';
+        $this->_buttonTitle = '↙ Request';
         $this->_cssClassSuffix = 'request';
     }
 }

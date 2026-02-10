@@ -11,7 +11,7 @@ class LumaPanel extends AbstractPanel
         parent::__construct($context, $data);
 
         $this->_title = 'Luma JS';
-        $this->_buttonTitle = 'Luma JS';
+        $this->_buttonTitle = '⚙ Luma JS';
         $this->_cssClassSuffix = 'luma';
     }
 }

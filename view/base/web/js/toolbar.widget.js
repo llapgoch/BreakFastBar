@@ -30,12 +30,14 @@
 
                 // localStorage
                 lsExpandedKey: 'breakfastbar-expanded-all',
+                lsActivePanelKey: 'breakfastbar-active-panel',
             },
 
             _create: function () {
                 this._super();
                 this._addEvents();
                 this._restoreExpandState();
+                this._restoreActivePanel();
             },
 
             // Other classes should use these instead of accessing the options directly in case the variables change
@@ -125,6 +127,34 @@
                 this._updateExpandLabel(expanded);
             },
 
+            _getPanelId: function ($item) {
+                var classes = ($item.attr('class') || '').split(/\s+/);
+                for (var i = 0; i < classes.length; i++) {
+                    if (classes[i].indexOf('devbar-panel-') === 0) {
+                        return classes[i];
+                    }
+                }
+                return null;
+            },
+
+            _saveActivePanel: function ($item) {
+                var panelId = this._getPanelId($item);
+                if (panelId) {
+                    localStorage.setItem(this.options.lsActivePanelKey, panelId);
+                }
+            },
+
+            _clearActivePanel: function () {
+                localStorage.removeItem(this.options.lsActivePanelKey);
+            },
+
+            _restoreActivePanel: function () {
+                var activePanelId = localStorage.getItem(this.options.lsActivePanelKey);
+                if (activePanelId && this.element.hasClass(activePanelId)) {
+                    this.element.addClass(this.options.toolbarItemActiveClass);
+                }
+            },
+
             expandToggleItem: function ($this) {
                 var activeClass = this.options.toolbarToggleActiveClass,
                     $item = $this.closest(this.options.toolbarListItemSelector).find(this.options.toolbarListSelector).first(),
@@ -170,8 +200,10 @@
 
                     if (!active) {
                         $item.addClass(this.options.toolbarItemActiveClass);
+                        this._saveActivePanel($item);
                     } else {
                         $item.removeClass(this.options.toolbarItemActiveClass);
+                        this._clearActivePanel();
                     }
                 };
 

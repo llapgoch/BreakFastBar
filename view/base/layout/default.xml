@@ -13,6 +13,10 @@
 
     <body>
         <container name="llapgoch.breakfastbar" htmlTag="div" htmlClass="devbar js-breakfastbar-controller">
+            <block class="Llapgoch\BreakFastBar\Block\DataInjector"
+                name="llapgoch.breakfastbar.data"
+                template="Llapgoch_BreakFastBar::data-injector.phtml"
+                before="-" />
             <block class="Magento\Framework\View\Element\Template"
                 name="llapgoch.breakfastbar.bg"
                 template="Llapgoch_BreakFastBar::toolbar/background.phtml" />

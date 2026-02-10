@@ -11,7 +11,7 @@ class AlpinePanel extends AbstractPanel
         parent::__construct($context, $data);
 
         $this->_title = 'Alpine';
-        $this->_buttonTitle = 'Alpine';
+        $this->_buttonTitle = '⚡ Alpine';
         $this->_cssClassSuffix = 'alpine';
     }
 }
